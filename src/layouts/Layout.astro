@@ -1,0 +1,50 @@
+---
+import '@fontsource/merriweather';
+import '@fontsource/archivo-black';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html class="min-h-screen min-w-full bg-brand-light scroll-smooth" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+
+    <link href="./fonts/fontawesome/css/fontawesome.css" rel="stylesheet" />
+    <link href="./fonts/fontawesome/css/brands.css" rel="stylesheet" />
+    <link href="./fonts/fontawesome/css/solid.css" rel="stylesheet" />
+    <title>{title}</title>
+  </head>
+  <body
+    class="min-h-screen min-w-[100vw] max-w-[100vw] overflow-x-hidden scrollbar-hide selection:bg-brand selection:text-white"
+  >
+    <slot />
+  </body>
+</html>
+<style is:global>
+  html {
+    font-family: 'Merriweather', system-ui, serif;
+    @apply bg-brand-light text-slate-900;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: 'Archivo Black', sans-serif;
+  }
+
+  code {
+    font-family: monospace;
+  }
+</style>
