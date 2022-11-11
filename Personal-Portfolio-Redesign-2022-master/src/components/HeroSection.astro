@@ -1,0 +1,25 @@
+---
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  class?: string;
+}
+
+const { title, subtitle, class: className } = Astro.props;
+---
+
+<section
+  id="heroSection"
+  class={`overflow-hidden flex flex-nowrap flex-col xl:flex-row justify-center lg:justify-center xl:justify-around items-center w-full min-h-screen p-2 md:p-10 self-center justify-self-center`}
+>
+  <slot name="heroImageLeft" />
+  <div
+    id="heroText"
+    class="text-left portrait:mt-12 md:portrait:mt-0 landscape:mt-10 md:landscape:mt-0 xl:landscape:mt-0 xl:landscape:h-full self-center xl:pl-16 flex flex-none flex-nowrap flex-col justify-center items-center"
+  >
+    <slot class="mb-5" name="title" />
+    <slot name="subtitle" />
+    <slot />
+  </div>
+  <slot name="heroImageRight" />
+</section>
